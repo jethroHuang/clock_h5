@@ -5,7 +5,7 @@
       <span>{{ now | dateFormat('ss') }}</span>
     </div>
     <div class="date">
-      {{ now | dateFormat('yyyy-MM-dd') }}<span class="week">{{ weekdayMap[now.getDay()] }}</span>
+      {{ now | dateFormat('yyyy年M月d日') }}<span class="week">{{ weekdayMap[now.getDay()] }}</span>
     </div>
   </div>
 </template>
@@ -28,7 +28,7 @@
           4: '星期四',
           5: '星期五',
           6: '星期六',
-          7: '星期天',
+          0: '星期天',
         }
       }
     },
@@ -57,23 +57,24 @@
       align-items: flex-end;
 
       span:first-child {
-        letter-spacing: 1rem;
+        letter-spacing: 16px;
         line-height: 0.85;
-        font-size: 6rem;
+        font-size: 48px;
       }
 
       span:nth-child(2) {
         line-height: 1;
-        font-size: 2.5rem;
+        font-size: 24px;
       }
     }
 
     .date {
-      font-size: 2rem;
-      padding-top: 1rem;
-      letter-spacing: 0.2rem;
+      font-size: 16px;
+      padding-left: 8px;
+      padding-top: 16px;
+      letter-spacing: 3px;
       .week {
-        padding-left: 1rem;
+        padding-left: 16px;
       }
     }
   }
