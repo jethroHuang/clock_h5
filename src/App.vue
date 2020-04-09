@@ -1,15 +1,17 @@
 <template>
   <div id="app">
     <Clock/>
+    <n-co-v id="nCov"/>
   </div>
 </template>
 
 <script>
   import Clock from "@/components/Clock"
+  import NCoV from "@/components/NCoV"
 
   export default {
     components: {
-      Clock
+      Clock,NCoV
     },
     name: 'App',
     interval: 0,
@@ -28,9 +30,20 @@
 <style lang="less">
   body {
     background-color: black;
-    padding: 32px;
+    color: white;
+    margin: 0;
+    padding: 0;
   }
 
   #app {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  #nCov {
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 </style>

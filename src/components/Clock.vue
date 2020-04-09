@@ -1,5 +1,5 @@
 <template>
-  <div id="timer">
+  <div class="timer">
     <div class="time">
       <span>{{ now | dateFormat('HH:mm') }}</span>
       <span>{{ now | dateFormat('ss') }}</span>
@@ -47,10 +47,11 @@
 </script>
 
 <style lang="less" scoped>
-  #timer {
+  .timer {
     color: white;
     display: inline-flex;
     flex-direction: column;
+    padding: 32px;
 
     .time {
       display: flex;
