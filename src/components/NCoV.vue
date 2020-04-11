@@ -1,5 +1,5 @@
 <template>
-  <div class="nCov">
+  <div class="nCov" v-show="provinceName !== ''">
     <div><span class="province-name">{{ provinceName }}</span>新冠疫情</div>
     <div class="item">
       <span class="label">现存确诊</span>
@@ -36,6 +36,7 @@
       // 初始化数据
       this.dataList = []
       this.currentIndex = 0
+      this.followCountry = ['美国', '日本', '意大利', '印度']
       this.loadData(true)
       // 1小时刷新以下数据
       this.getDateInterval = setInterval(this.loadData, 1000 * 60 * 60)
@@ -53,7 +54,7 @@
         const res = await this.$axios.get(api + query)
         if (res.data.code === 200) {
           // 取出希望查看的国家列表
-          this.dataList = res.data.newslist.filter(item => ['美国', '日本', '意大利'].includes(item.provinceName))
+          this.dataList = res.data.newslist.filter(item => this.followCountry.includes(item.provinceName))
         }
         if (isInit) {
           this.next()
@@ -61,11 +62,9 @@
       },
       // 取出数据到当前数据
       next() {
-        console.log(this.dataList)
         if (this.dataList === undefined || this.dataList === null || this.dataList.isEmpty) {
           return
         }
-        console.log('index', this.currentIndex)
         const item = this.dataList[this.currentIndex]
         this.provinceName = item.provinceName
         this.currentConfirmedCount = item.currentConfirmedCount
