@@ -3,19 +3,19 @@
     <div><span class="province-name">{{ provinceName }}</span>新冠疫情</div>
     <div class="item">
       <span class="label">现存确诊</span>
-      <span class="val">{{currentConfirmedCount}}</span>
+      <span class="val">{{currentConfirmedCount | thousand}}</span>
     </div>
     <div class="item">
       <span class="label">累计确诊</span>
-      <span class="val">{{confirmedCount}}</span>
+      <span class="val">{{confirmedCount | thousand}}</span>
     </div>
     <div class="item">
       <span class="label">死亡人数</span>
-      <span class="val">{{deadCount}}</span>
+      <span class="val">{{deadCount | thousand}}</span>
     </div>
     <div class="item">
       <span class="label">治愈人数</span>
-      <span class="val">{{curedCount}}</span>
+      <span class="val">{{curedCount | thousand}}</span>
     </div>
   </div>
 </template>
@@ -23,6 +23,12 @@
 <script>
   export default {
     name: "NCoV",
+    filters: {
+      // 按万进行分割
+      thousand(value) {
+        return value.toString().replace(/(\d)(?=(?:\d{4})+$)/g, '$1,');
+      }
+    },
     data() {
       return {
         provinceName: '',
@@ -85,11 +91,13 @@
 <style scoped lang="less">
   .nCov {
     padding: 32px;
+
     .province-name {
-      width: 100px;
+      padding-right: 4px;
       padding-bottom: 8px;
       display: inline-block;
     }
+
     .item {
       .label {
         width: 100px;
