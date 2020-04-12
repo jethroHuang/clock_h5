@@ -2,16 +2,18 @@
   <div id="app">
     <Clock/>
     <n-co-v id="nCov"/>
+    <weather id="weather"/>
   </div>
 </template>
 
 <script>
   import Clock from "@/components/Clock"
   import NCoV from "@/components/NCoV"
+  import Weather from "@/components/Weather"
 
   export default {
     components: {
-      Clock,NCoV
+      Clock,NCoV, Weather
     },
     name: 'App',
     interval: 0,
@@ -45,5 +47,11 @@
     position: absolute;
     bottom: 0;
     left: 0;
+  }
+
+  #weather {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 </style>
