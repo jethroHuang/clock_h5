@@ -1,6 +1,6 @@
 <template>
   <div class="nCov" v-show="provinceName !== ''">
-    <div><span class="province-name">---{{ provinceName }}</span>新冠疫情---</div>
+    <div><span class="province-name">{{ provinceName }}</span>新冠疫情</div>
     <div class="item">
       <span class="label">现存确诊</span>
       <span class="val">{{currentConfirmedCount | thousand}}</span>
