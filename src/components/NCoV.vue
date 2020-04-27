@@ -55,7 +55,7 @@
     },
     methods: {
       async loadData(isInit = false) {
-        const api = 'http://api.tianapi.com/txapi/ncovabroad/index'
+        const api = 'https://api.tianapi.com/txapi/ncovabroad/index'
         const query = '?key=ef19c3b85bdaaab8be8b9a1d7f9be232'
         const res = await this.$axios.get(api + query)
         if (res.data.code === 200) {
