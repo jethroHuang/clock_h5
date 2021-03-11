@@ -45,4 +45,4 @@ function copyDir(src, dist, callback) {
     }
 }
 
-copyDir('./dist', '../static')
+copyDir('./dist', '../../static')
