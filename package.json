@@ -1,13 +1,14 @@
 {
   "name": "magic_mirror",
-  "version": "0.1.1",
-  "private": true,
+  "version": "0.1.2",
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "postinstall": "node cp.js"
   },
+  "main": "dist/js/app.ea8ea8e6.js",
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
